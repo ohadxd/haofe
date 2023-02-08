@@ -1,0 +1,216 @@
+.scroller {
+  nav {
+    z-index: 666;
+    //background-color: rgba(255, 255, 255, 0.3);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: black;
+    top: 0;
+    height: 80px;
+    ul {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      margin: auto;
+      box-sizing: border-box;
+      //background: rgba(255,255,255,0.3);
+
+      li {
+        list-style: none;
+        margin-right: 20px;
+        font-size: 24px;
+        font-weight: 600;
+      }
+      button {
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+        color: #fdfdfe;
+        text-shadow: 0 0 5px rgba(215, 156, 156, 0.84), 0 0 10px #654f4f, 0 0 10px #948188,
+        0 0 20px #c4a29a;
+      }
+      button:hover {
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: 900;
+        color: #fdfdfe;
+        text-shadow: 0 0 50px rgba(215, 156, 156, 0.84), 0 0 10px #654f4f, 0 0 10px #948188,
+        0 50px 60px #c4a29a;
+    }
+    }
+
+    .logo {
+      position: fixed;
+      float: left;
+      z-index: 999;
+      left: 80px;
+      top: 10px;
+      opacity: 0.7;
+      width: 60px;
+      height: auto;
+      img {
+        border-radius: 50%;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  width: auto;
+  border: 1px solid black;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: black;
+  color: white;
+  section {
+    height: 100vh;
+    //scroll-snap-align: start;
+  }
+  .sec1 {
+    display: flex;
+    background-image: url('../assets/bg1.webp');
+    background-size: cover;
+    scroll-snap-align: center;
+    opacity:1;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .sec2 {
+    position: relative;
+    scroll-snap-align: center;
+    width: 100vw;
+    height: 100vh;
+    .content{
+      display: flex;
+      position:relative;
+      justify-content: center;
+      align-items: center;
+      top: -100vh;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      h2 {
+        //margin-top: 200px;
+      }
+    }
+    //opening like animation suppose to contain 2 images,
+    //each takes 50vw, and leaves the view when scrolled to
+
+      .row {
+        img { //should be first flex item
+          position: relative;
+          left: 0;
+          width: auto;
+          height: auto;
+          max-height:100vh;
+          //right: 0;
+          z-index: 2;
+          //background-image: url("../assets/cookie.webp");
+          //background-size: 100vh;
+          //background-repeat: no-repeat;
+        }
+
+
+      }
+
+  }
+
+  .sec3 {
+    position: relative;
+    scroll-snap-align: center;
+    width: 100vw;
+    height: 100vh;
+    .row {
+      .right-image {
+        position: relative;
+        width: 50vw;
+        height: 100vh;
+        z-index: 2;
+        background-image: url("../assets/rightDoor.webp");
+        background-size: cover;
+      }
+      .left-image {
+        position: relative;
+        width: 50vw;
+        height: 100vh;
+        z-index: 2;
+        background-image: url("../assets/leftDoor.webp");
+        background-size: cover;
+      }
+    }
+  }
+}
+//.bg {
+//  opacity: 0 !important;
+//  transition: 1s all ease;
+//  animation-duration: 0.5s;
+//  animation-name: bgFade;
+//}
+
+
+
+@media only screen and (min-width: 1450px) {
+  nav {
+    ul {
+      li {
+        button {
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1449px) {
+  nav {
+    ul {
+      li {
+        button {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .logo {
+    img {
+      width: 100%;
+    }
+  }
+  nav {
+    ul {
+      li {
+        button {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 910px) {
+  nav {
+    ul {
+      li {
+        button {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+}
+@media only screen and (min-width: 481px) {
+
+}

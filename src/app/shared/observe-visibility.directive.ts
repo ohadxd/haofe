@@ -8,10 +8,9 @@ export class ObserveVisibilityDirective
   implements OnDestroy, OnInit, AfterViewInit {
   @Input() debounceTime = 0;
   @Input() threshold = 0.5;
+  @Output() visible = new EventEmitter<boolean>();
 
-  @Output() visible = new EventEmitter<HTMLElement>();
-
-  private observer: IntersectionObserver | null |undefined;
+  private observer: IntersectionObserver |undefined;
   private subject$ = new Subject<{
     entry: IntersectionObserverEntry;
     observer: IntersectionObserver;
@@ -39,7 +38,7 @@ export class ObserveVisibilityDirective
   private isVisible(element: HTMLElement) {
     return new Promise(resolve => {
       const observer = new IntersectionObserver(([entry]) => {
-        resolve(entry.intersectionRatio > 0.2);
+        resolve(entry.intersectionRatio > this.threshold);
         observer.disconnect();
       });
 
@@ -49,7 +48,6 @@ export class ObserveVisibilityDirective
 
   private createObserver() {
     const options = {
-      rootMargin: '0px',
       threshold: this.threshold,
     };
 
@@ -79,8 +77,11 @@ export class ObserveVisibilityDirective
 
         if (isStillVisible) {
           console.log(isStillVisible)
-          this.visible.emit(target);
+            this.visible.emit(true);
           // observer.unobserve(target);
+        } else {
+          console.log(isStillVisible)
+          this.visible.emit(false);
         }
 
       });
