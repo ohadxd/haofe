@@ -19,7 +19,6 @@ import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import { ObserveVisibilityDirective } from './observe-visibility.directive';
 
 
 @NgModule({
@@ -71,7 +70,7 @@ import { ObserveVisibilityDirective } from './observe-visibility.directive';
 
 
   ],
-  providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}}],
+  providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'always'}}]
 })
 
 export class AngularMatModule {

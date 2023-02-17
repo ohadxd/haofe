@@ -1,0 +1,24 @@
+<nav class="header" [class.hide-on-scroll] = "isScrolled">
+  <ul>
+    <li><button mat-button href="#first">ראשי</button></li>
+    <li><button mat-button href="#second">עלינו</button></li>
+    <li><button mat-button href="#second">המוצרים שלנו</button></li>
+    <li><button mat-button href="#third">צור קשר</button></li>
+  </ul>
+  <div class="logo">
+    <img src="../../assets/logo.webp" alt="האופה">
+  </div>
+</nav>
+<nav class="sidenav" [class.change] = 'toggle'>
+  <div class="toggle" [class.change] = 'toggle' (click)="toggleMenu()">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </div>
+  <ul *ngIf = "toggle">
+    <li><button mat-button href="#first">ראשי</button></li>
+    <li><button mat-button href="#second">עלינו</button></li>
+    <li><button mat-button href="#second">המוצרים שלנו</button></li>
+    <li><button mat-button href="#third">צור קשר</button></li>
+  </ul>
+</nav>

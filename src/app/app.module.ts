@@ -3,22 +3,42 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AngularMatModule } from './shared/angular-material.module';
-import { ObserveVisibilityDirective } from './shared/observe-visibility.directive';
-import { ParallaxDirective } from './shared/parallax.directive';
 import { SlowScrollDirective } from './shared/directives/slow-scroll.directive';
+import { ProductsComponent } from './products/products.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductEditComponent } from './products/product-edit/product-edit.component';
+import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { RouterModule } from '@angular/router';
+import { ParallaxDirective } from './shared/directives/parallax.directive';
+import { ObserveVisibilityDirective } from './shared/directives/observe-visibility.directive';
+import { SharedModule } from './shared/shared-modules/shared.module';
+import { AppRoutingModule } from './routing.module';
+import { MainComponent } from './main/main.component';
+import { HeaderComponent } from './header/header.component';
+import { ImageSliderModule } from './image-slider/image-slider.module';
+import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ObserveVisibilityDirective,
     ParallaxDirective,
-    SlowScrollDirective
+    SlowScrollDirective,
+    ProductsComponent,
+    ProductListComponent,
+    ProductEditComponent,
+    ProductDetailsComponent,
+    MainComponent,
+    HeaderComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AngularMatModule
+    SharedModule,
+    AppRoutingModule,
+    ImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

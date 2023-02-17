@@ -1,0 +1,164 @@
+section {
+  height: 100vh;
+  color: aliceblue;
+  //scroll-snap-align: start;
+}
+.sec1 {
+  display: flex;
+  scroll-snap-align: center;
+  opacity:1;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.sec2 {
+  position: relative;
+  scroll-snap-align: center;
+  background-image: url('../../assets/secondary2.webp');
+  background-size: cover;
+
+  width: 100vw;
+  height: 100vh;
+  .content{
+    display: flex;
+    position:relative;
+    justify-content: center;
+    align-items: center;
+    //top: -100vh;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    h2 {
+      //margin-top: 200px;
+    }
+  }
+  //opening like animation suppose to contain 2 images,
+  //each takes 50vw, and leaves the view when scrolled to
+
+  .row {
+    img { //should be first flex item
+      position: relative;
+      left: 0;
+      width: auto;
+      height: auto;
+      max-height:100vh;
+      //right: 0;
+      z-index: 2;
+      //background-image: url("../assets/cookie.webp");
+      //background-size: 100vh;
+      //background-repeat: no-repeat;
+    }
+
+
+  }
+
+}
+
+.logo {
+  position: fixed;
+  float: left;
+  z-index: 999;
+  left: 80px;
+  top: 10px;
+  opacity: 0.7;
+  width: 60px;
+  height: auto;
+
+  img {
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+  }
+}
+.scroller {
+  width: auto;
+  border: 1px solid black;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: black;
+  color: white;
+}
+
+  .sec3 {
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+  scroll-snap-align: center;
+  width: 100vw;
+  height: 100vh;
+  //
+  //.row {
+  //  .right-image {
+  //    position: relative;
+  //    width: 50vw;
+  //    height: 100vh;
+  //    //z-index: 2;
+  //    background-image: url("../../assets/rightDoor.webp");
+  //    background-size: cover;
+  //  }
+  //  .left-image {
+  //    position: relative;
+  //    width: 50vw;
+  //    height: 100vh;
+  //    //z-index: 2;
+  //    background-image: url("../../assets/leftDoor.webp");
+  //    background-size: cover;
+  //  }
+  //}
+}
+
+//.bg {
+//  opacity: 0 !important;
+//  transition: 1s all ease;
+//  animation-duration: 0.5s;
+//  animation-name: bgFade;
+//}
+
+@media only screen and (min-width: 1450px) {
+
+}
+@media only screen and (max-width: 1449px) {
+
+}
+@media only screen and (max-width: 1200px) {
+
+
+
+}
+@media only screen and (max-width: 910px) {
+
+}
+
+@media only screen and (max-width: 480px) {
+
+  .sec2 {
+    position: relative;
+    scroll-snap-align: center;
+    background-image: url('../../assets/secondary1.webp');
+    background-size: cover;
+
+    width: 100vw;
+    height: 100vh;
+
+    .content {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+@media only screen and (min-width: 481px) {
+
+}

@@ -1,4 +1,4 @@
-import { animation, style, animate, trigger, transition, useAnimation, state } from '@angular/animations';
+import { animation, style, animate, trigger, transition, useAnimation, state, query } from '@angular/animations';
 
 export const transitionAnimation = animation([
   style({
@@ -157,3 +157,24 @@ export const transformRoll = [
     ])
   ])
 ];
+
+// export const closeMenu =[
+//   trigger('menu', [
+//     transition('* => void', [
+//       // make X from the first and third line' and hide the middle
+//       query('.bar1', animate(1000, style({ transform: ' translate(0, 11px) rotate(45deg)', color: 'red' }))),
+//       query('.bar2', animate(1000, (style({ opacity: 0 })))),
+//
+//       // animate the inner elements in, one by one
+//       query('.bar3', animate(1000, style({ transform: ' translate(0, -11px) rotate(-45deg)', color: 'red' }))),
+//     ]),
+//     transition('void => *', [
+//       // make X from the first and third line' and hide the middle
+//       query('.bar1', animate(1000, style({ transform: 'rotate(0deg)' }))),
+//       query('.bar2', style({ opacity: 1 })),
+//
+//       // animate the inner elements in, one by one
+//       query('.bar3', animate(1000, style({ transform: 'rotate(0deg)' }))),
+//     ]),
+//   ])
+// ]

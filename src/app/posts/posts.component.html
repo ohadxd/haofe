@@ -1,0 +1,8 @@
+<div class="posts d-flex flex-lg-row  overflow-hidden justify-content-center align-content-center">
+  <div class="post" *ngFor  = "let post of posts">
+    <img [src]="post.url" [alt]="post.title">
+    <div class="overlay">
+      <div class="text">{{post.title}}</div>
+    </div>
+  </div>
+</div>
