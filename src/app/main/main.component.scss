@@ -91,9 +91,21 @@ section {
     flex-direction: column;
     align-content: center;
     justify-content: center;
+    background-image: url('../../assets/sec3.webp');
+    background-size: cover;
   scroll-snap-align: center;
   width: 100vw;
   height: 100vh;
+    h3 {
+      width: 100vw;
+      text-align: center;
+      color: aliceblue;
+      margin: 0 auto;
+      height: 60px;
+      font-family: 'Brush Script MT', serif;
+      text-shadow: 0 2px 20px rgba(215, 156, 156, 0.84)
+    }
+
   //
   //.row {
   //  .right-image {

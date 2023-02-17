@@ -10,5 +10,10 @@ export class PostsComponent {
 posts: PostInterface[] = [{
   title: 'some title',
   url: 'assets/img1.webp'
-}]
+},
+  {
+    title: 'some title',
+    url: 'assets/img1.webp'
+  }
+  ]
 }
