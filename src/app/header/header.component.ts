@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 // import { closeMenu } from '../animations';
 
 @Component({
@@ -9,10 +9,18 @@ import { Component, HostListener } from '@angular/core';
     // closeMenu
   ]
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   toggle: boolean = false;
-  isScrolled: boolean = true;
+  isScrolled: boolean = false;
+  mobile: boolean = false;
 
+  ngOnInit() {
+    if (window.screen.width <= 900) { // 768px portrait
+      this.mobile = true;
+    }
+    else
+      this.mobile = false;
+  }
 toggleMenu() {
   this.toggle = !this.toggle
   console.log(this.toggle);

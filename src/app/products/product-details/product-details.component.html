@@ -1,1 +1,22 @@
-<p>product-details works!</p>
+<div class="products-list  d-flex  h-100
+  flex-lg-row flex-wrap pb-5 pt-5 justify-content-center align-content-center">
+  <div class="product-card
+  col-sm-8 col-md-9 col-lg-8 col-xl-5
+   d-flex flex-column align-items-center
+     text-light
+     border border-dark rounded-3">
+    <header class="bg-dark rounded-top w-100 text-center">
+      <p class="text-sm-center">פטיסייאר</p>
+    </header>
+    <img class="mt-auto" src="assets/img3.webp" alt="product.name" style="max-width: 100%">
+    <p class="description mt-auto">
+      מאפה שמרים עם מלית וניל ושוקו צ'יפס.
+      מוגש בחתכות של כ-2 ס"מ חמות, משתלב עם נס של בוקר, הפוך או כל משקה חם שתבחרו.
+    </p>
+    <footer class="bg-dark w-100 text-center mt-auto rounded-bottom">
+      <span>מחיר: 15 ש"ח</span>
+      <mat-icon (mouseover)="colorShareIcon($event)" (mouseleave)="uncolorShareIcon($event)">share</mat-icon>
+      <mat-icon (mouseover)="colorFavIcon($event)" (mouseleave)="uncolorFavIcon($event)">favorite_border</mat-icon>
+    </footer>
+  </div>
+</div>

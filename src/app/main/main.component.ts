@@ -23,13 +23,11 @@ export class MainComponent {
   doors: boolean = false
   showFiller: boolean = false;
   slides: SlideInterface[] = [
-    {
-      url: 'assets/img1.webp', title: 'bakery'},
+
     {url: 'assets/img2.webp', title: 'bakery'},
     {url: 'assets/img3.webp', title: 'bakery'},
     {url: 'assets/img4.webp', title: 'bakery'},
     {url: 'assets/img5.webp', title: 'bakery'}
-
 
   ];
   fadeAnimation(bool: boolean) {

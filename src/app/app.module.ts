@@ -18,6 +18,8 @@ import { HeaderComponent } from './header/header.component';
 import { ImageSliderModule } from './image-slider/image-slider.module';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { PostsComponent } from './posts/posts.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [
@@ -31,14 +33,16 @@ import { PostsComponent } from './posts/posts.component';
     ProductDetailsComponent,
     MainComponent,
     HeaderComponent,
-    PostsComponent
+    PostsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
     AppRoutingModule,
-    ImageSliderModule
+    ImageSliderModule,
+    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

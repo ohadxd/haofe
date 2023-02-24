@@ -35,6 +35,34 @@ $Haofe-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; direction: rtl; overflow-x: hidden;
+html, body {
+  height: 100%;
+  direction: rtl;
+  overflow-x: hidden;
+  scrollbar-color: #3a3841 #000000;
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 4px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #3a3841;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-display: swap;
+}

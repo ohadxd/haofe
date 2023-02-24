@@ -1,0 +1,30 @@
+.products-list {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  background: #919191;
+  background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.74),
+      rgba(255, 255, 255, 0.2))!important;
+  .product-card {
+    min-width: 200px;
+    max-height: 80%;
+    header {
+      p {
+        font-weight: bolder;
+      }
+    }
+    footer {
+      display: flex;
+      justify-content: center;
+      align-content: baseline;
+      padding-bottom: 3px;
+      mat-icon, span {
+        margin: 0 5px 0;
+      }
+      mat-icon {
+        cursor: pointer;
+      }
+    }
+  }
+}

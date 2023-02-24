@@ -1,34 +1,28 @@
 <div class="scroller">
 
 
-  <section [@fadeEffect]="fade? 'visible':'fade'" class="sec1" observeVisibility
-           [debounceTime]="0" (visible)="fadeAnimation($event)"
-  >
+  <section  class="sec1" observeVisibility>
 <div class="slider" style="width: 100vw; height: 80vh;margin: auto auto; border-radius: 15px;">
   <image-slider [slides]="slides"></image-slider>
 </div>
-    <!--    <h2>Section one</h2>-->
   </section>
   <section class="sec2" observeVisibility
            [debounceTime]="0" (visible)="openAnimation($event)" [threshold] = "0.8">
-<!--    <div class="row">-->
-<!--      <img src="assets/cookie.webp" alt="cookie" class="right-image" [@roll]="leave? 'out':'in'">-->
-<!--    </div>-->
     <div class="content" [@fadeEffect]="leave? 'visible':'fade'">
-      <h2>
-        Title with animation for sec 2
-      </h2>
+      <p>
+        "בית מאפה וקונדיטוריה ברמה הכי גבוהה לצד שירות מעולה מאפים ולחמים טריים מידי שעה קפה , קינוחים ועוגות קרות מוצרי חלב ועוד..."
+      </p>
+      <ul aria-label="המוצרים שלנו:">
+        <br><br>
+        <li><mat-icon>touch_app</mat-icon>&nbsp;עוגות ועוגיות</li>
+        <li><mat-icon>touch_app</mat-icon>&nbsp;עוגות שמרים ומאפים</li>
+        <li><mat-icon>touch_app</mat-icon>&nbsp;לחמים ומחמצות</li>
+      </ul>
+      <img src="assets/img3.webp" alt="example" style="min-width: 250px;max-width: 30vw; max-height: 25vh">
     </div>
   </section>
 
   <section class="sec3">
-<!--    <div class="row" observeVisibility-->
-<!--         [debounceTime]="0" (visible)="doorsAnimation($event)" [threshold] = "0.9">-->
-<!--      <div class="right-image col" [@openRight] = "doors? 'open':'close'">-->
-<!--      </div>-->
-<!--      <div class="left-image col" [@openLeft] = "doors? 'open':'close'">-->
-<!--      </div>-->
-<!--    </div>-->
         <h3 class="sec3-title" style="">הבלוג השבועי</h3>
  <app-posts></app-posts>
    </section>

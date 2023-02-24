@@ -1,4 +1,4 @@
-<nav class="header" [class.hide-on-scroll] = "isScrolled">
+<nav class="header"  *ngIf="!mobile" [class.hide-on-scroll] = "isScrolled">
   <ul>
     <li><button mat-button href="#first">ראשי</button></li>
     <li><button mat-button href="#second">עלינו</button></li>
@@ -9,12 +9,13 @@
     <img src="../../assets/logo.webp" alt="האופה">
   </div>
 </nav>
-<nav class="sidenav" [class.change] = 'toggle'>
-  <div class="toggle" [class.change] = 'toggle' (click)="toggleMenu()">
-    <div class="bar1"></div>
-    <div class="bar2"></div>
-    <div class="bar3"></div>
-  </div>
+<nav class="sidenav" *ngIf="mobile"
+     [class.change] = 'toggle'>
+    <div class="toggle"  [class.change] = 'toggle' (click)="toggleMenu()">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
   <ul *ngIf = "toggle">
     <li><button mat-button href="#first">ראשי</button></li>
     <li><button mat-button href="#second">עלינו</button></li>

@@ -8,12 +8,16 @@ import { PostInterface } from './post.interface';
 })
 export class PostsComponent {
 posts: PostInterface[] = [{
-  title: 'some title',
-  url: 'assets/img1.webp'
+  title: 'מדריך לגידול שמריים טבעיים עבור לחם מחמצת מושלם',
+  url: 'assets/img2.webp'
 },
   {
-    title: 'some title',
-    url: 'assets/img1.webp'
+    title: 'שכחת להוסיף שמרים?',
+    url: 'assets/img2.webp'
+  },
+  {
+    title: 'בצק עלים ביתי',
+    url: 'assets/img2.webp'
   }
   ]
 }

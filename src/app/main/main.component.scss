@@ -1,11 +1,11 @@
 section {
   height: 100vh;
   color: aliceblue;
-  //scroll-snap-align: start;
+  scroll-snap-align: start;
 }
 .sec1 {
   display: flex;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   opacity:1;
   width: 100vw;
   height: 100vh;
@@ -16,23 +16,26 @@ section {
 
 .sec2 {
   position: relative;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   background-image: url('../../assets/secondary2.webp');
   background-size: cover;
 
   width: 100vw;
   height: 100vh;
+  font-family: Anthem, serif;
   .content{
     display: flex;
     position:relative;
     justify-content: center;
     align-items: center;
-    //top: -100vh;
+    top: -80px;
     z-index: 1;
     height: 100%;
-    width: 100%;
-    h2 {
-      //margin-top: 200px;
+    max-width: 100%;
+    p {
+      margin-top: 45vh;
+      max-width: 50vw;
+      font-size: 60px;
     }
   }
   //opening like animation suppose to contain 2 images,
@@ -57,54 +60,40 @@ section {
 
 }
 
-.logo {
-  position: fixed;
-  float: left;
-  z-index: 999;
-  left: 80px;
-  top: 10px;
-  opacity: 0.7;
-  width: 60px;
-  height: auto;
 
-  img {
-    border-radius: 50%;
-    width: 100%;
-    height: auto;
-  }
-}
 .scroller {
   width: auto;
   border: 1px solid black;
   height: 100vh;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   overflow-x: hidden;
   scroll-behavior: smooth;
   background-color: black;
   color: white;
+  scrollbar-width: thin;
 }
 
-  .sec3 {
+.sec3 {
   position: relative;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    background-image: url('../../assets/sec3.webp');
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background-image: url('../../assets/sec3.webp');
+  background-size: cover;
   scroll-snap-align: center;
   width: 100vw;
   height: 100vh;
-    h3 {
-      width: 100vw;
-      text-align: center;
-      color: aliceblue;
-      margin: 0 auto;
-      height: 60px;
-      font-family: 'Brush Script MT', serif;
-      text-shadow: 0 2px 20px rgba(215, 156, 156, 0.84)
-    }
+  h3 {
+    width: 100vw;
+    text-align: center;
+    color: aliceblue;
+    margin: 0 auto;
+    height: 60px;
+    font-family: 'Brush Script MT', serif;
+    text-shadow: 0 2px 20px rgba(215, 156, 156, 0.84)
+  }
 
   //
   //.row {
@@ -142,7 +131,30 @@ section {
 }
 @media only screen and (max-width: 1200px) {
 
+  .sec2 {
+    position: relative;
+    scroll-snap-align: center;
+    background-image: url('../../assets/secondary1.webp');
+    background-size: cover;
 
+    width: 100vw;
+    height: 100vh;
+
+    .content {
+      display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      p {
+        margin-left: 150px;
+        max-width: 50vw;
+        font-size: 40px;
+      }
+    }
+  }
 
 }
 @media only screen and (max-width: 910px) {
@@ -162,12 +174,46 @@ section {
 
     .content {
       display: flex;
+      flex-direction: column;
       position: relative;
       justify-content: center;
       align-items: center;
       z-index: 1;
       height: 100%;
       width: 100%;
+      p {
+        display: none;
+        margin-top: 45vh;
+        max-width: 50vw;
+        font-size: 18px;
+      }
+      ul{
+        margin-left: 150px;
+        &:before {
+          content:attr(aria-label);
+          font-size: 30px;
+          font-weight: 600;
+          color: #fdfdfe;
+          text-shadow: 0 0 5px rgba(215, 156, 156, 0.84), 0 0 10px #654f4f, 0 0 10px #948188,
+          0 0 20px #c4a29a;
+        }
+        width: 80%;
+        li {
+          list-style: none;
+          text-decoration: none;
+          font-size: 20px;
+          font-weight: 600;
+          color: #fdfdfe;
+          text-shadow: 0 0 5px rgba(215, 156, 156, 0.84), 0 0 10px #654f4f, 0 0 10px #948188,
+          0 0 20px #c4a29a;
+          cursor: pointer;
+          border-bottom: solid 1px gray;
+          mat-icon {
+            text-shadow: 0 0 1px rgba(215, 156, 156, 0.84), 0 0 2px #654f4f, 0 0 3px #948188,
+            0 0 20px #c4a29a;
+          }
+        }
+      }
     }
   }
 }
