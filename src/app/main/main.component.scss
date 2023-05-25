@@ -28,15 +28,15 @@ section {
     position:relative;
     justify-content: center;
     align-items: center;
-    top: -80px;
     z-index: 1;
     height: 100%;
     max-width: 100%;
-    p {
-      margin-top: 45vh;
+    span {
+      max-height: 50vh;
       max-width: 50vw;
-      font-size: 60px;
+      font-size: 40px;
     }
+
   }
   //opening like animation suppose to contain 2 images,
   //each takes 50vw, and leaves the view when scrolled to
@@ -48,18 +48,10 @@ section {
       width: auto;
       height: auto;
       max-height:100vh;
-      //right: 0;
       z-index: 2;
-      //background-image: url("../assets/cookie.webp");
-      //background-size: 100vh;
-      //background-repeat: no-repeat;
     }
-
-
   }
-
 }
-
 
 .scroller {
   width: auto;
@@ -95,33 +87,9 @@ section {
     text-shadow: 0 2px 20px rgba(215, 156, 156, 0.84)
   }
 
-  //
-  //.row {
-  //  .right-image {
-  //    position: relative;
-  //    width: 50vw;
-  //    height: 100vh;
-  //    //z-index: 2;
-  //    background-image: url("../../assets/rightDoor.webp");
-  //    background-size: cover;
-  //  }
-  //  .left-image {
-  //    position: relative;
-  //    width: 50vw;
-  //    height: 100vh;
-  //    //z-index: 2;
-  //    background-image: url("../../assets/leftDoor.webp");
-  //    background-size: cover;
-  //  }
-  //}
+
 }
 
-//.bg {
-//  opacity: 0 !important;
-//  transition: 1s all ease;
-//  animation-duration: 0.5s;
-//  animation-name: bgFade;
-//}
 
 @media only screen and (min-width: 1450px) {
 
@@ -141,17 +109,10 @@ section {
     height: 100vh;
 
     .content {
-      display: flex;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-      height: 100%;
-      width: 100%;
-      p {
-        margin-left: 150px;
+      span {
+        max-height: 50vh;
         max-width: 50vw;
-        font-size: 40px;
+        font-size: 38px;
       }
     }
   }
@@ -173,19 +134,10 @@ section {
     height: 100vh;
 
     .content {
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-      height: 100%;
-      width: 100%;
-      p {
-        display: none;
-        margin-top: 45vh;
+      span {
+        margin-left: 50px;
         max-width: 50vw;
-        font-size: 18px;
+        font-size: 25px;
       }
       ul{
         margin-left: 150px;

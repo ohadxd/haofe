@@ -1,0 +1,16 @@
+<div class="container d-flex flex-column
+justify-content-center align-content-center wrapper w-100 h-50"
+style="margin-top: 150px">
+  <header class="d-inline-flex align-items-baseline p-4 w-100 bg-light m-auto"
+        >
+    <i class="pi pi-align-right" (click) ="alignRightClick()" [class.click] = "alignRight"></i>
+    <i class="pi pi-align-left" (click)="alignLeftClick()" [class.click] = "alignLeft"></i>
+    <i class="pi pi-align-center" (click)="alignCenterClick()" [class.click] = "alignCenter"></i>
+    <i class="pi pi-align-justify" (click)="alignJustifyClick()" [class.click] = "alignJustify"></i>
+    <i class="pi pi-bolt" (click)="boldClick()" [class.click] = "bold"></i>
+
+  </header>
+  <div class="d-block" contenteditable="true" class="w-100 h-100" id="editor" name="editor" #richText>
+
+  </div>
+</div>

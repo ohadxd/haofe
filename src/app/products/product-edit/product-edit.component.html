@@ -1,1 +1,48 @@
-<p>product-edit works!</p>
+<div class="container d-flex w-100 h-100 col col-xl col-lg col-md col-sm
+ flex-column justify-content-center align-items-center">
+  <div class="editor">
+    <div class="header d-flex flex-row w-100 py-2 col col-xl
+                col-lg col-md col-sm align-content-center justify-content-center">
+      <form class="d-flex flex-column justify-content-center align-content-center" (ngSubmit)="onSubmit()" [formGroup] = "productForm">
+        <mat-form-field appearance="fill">
+          <mat-label>שם מוצר:</mat-label>
+          <input matInput type="text" id="product-name" formControlName = "name">
+        </mat-form-field>
+        <!-- file upload area -->
+          <label style="color: aliceblue">קישור תמונה:</label>
+        <input type="file" class="file-input"
+               (change)="onFileSelected($event)" #fileUpload>
+         <div class="file-upload">
+          {{fileName || "נא לבחור קובץ."}}
+          <button mat-mini-fab color="primary" class="upload-btn"
+                  (click)="fileUpload.click()">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+        </div>
+        <!--if upload started progress bar value is not -1 -->
+        <div class="progress"*ngIf="uploadProgress !== -1">
+          <mat-progress-bar class="progress-bar" mode="determinate"
+                            [value]="uploadProgress">
+          </mat-progress-bar>
+        <!-- cancel upload -->
+          <mat-icon class="cancel-upload" (click)="cancelUpload()"
+                    >delete_forever</mat-icon>
+
+        </div>
+        <div class="image">
+          <img [src]="imgPath" *ngIf = "imgPath !== ''" alt="">
+        </div>
+        <!-- Descrption -->
+        <mat-form-field appearance="fill">
+          <mat-label>תיאור:</mat-label>
+          <textarea matInput id="desc" formControlName = "description"></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>מחיר:</mat-label>
+          <input matInput type="number" id="price" formControlName="price">
+        </mat-form-field>
+        <button mat-button="primary" [disabled]="!productForm.valid" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

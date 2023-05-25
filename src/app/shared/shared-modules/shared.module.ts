@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularMatModule } from "./angular-mat.module";
-
+import { EditorModule } from 'primeng/editor';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -10,12 +11,19 @@ import { AngularMatModule } from "./angular-mat.module";
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    AngularMatModule
+    AngularMatModule,
+    EditorModule,
+    FormsModule,
+
   ],
   exports: [
     ReactiveFormsModule,
     CommonModule,
-    AngularMatModule
-  ]
+    AngularMatModule,
+    EditorModule,
+    FormsModule,
+    HttpClientModule
+
+  ],
 })
 export class SharedModule { }

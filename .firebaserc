@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "haofe-5eb24"
+  },
+  "targets": {
+    "haofe-5eb24": {
+      "hosting": {
+        "Haofe": [
+          "haofe-5eb24"
+        ]
+      }
+    }
   }
 }

@@ -1,4 +1,5 @@
 import { Component, Renderer2 } from '@angular/core';
+import {ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -6,9 +7,11 @@ import { Component, Renderer2 } from '@angular/core';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent {
+  isAdmin: boolean = true;
 
 
-  constructor(private renderer2: Renderer2) {
+  constructor(private renderer2: Renderer2,  private route: ActivatedRoute,
+              private router: Router) {
   }
 
   colorFavIcon(e: any) {
@@ -26,5 +29,16 @@ export class ProductDetailsComponent {
   }
   uncolorShareIcon(e: any) {
     this.renderer2.setStyle(e.target,'color', 'white');
+  }
+  colorEditIcon(e: any) {
+    this.renderer2.setStyle(e.target,'color', 'gray');
+
+    console.log(e)
+  }
+  uncolorEditIcon(e: any) {
+    this.renderer2.setStyle(e.target,'color', 'white');
+  }
+  onEditProduct() {
+    this.router.navigate(['edit'], {relativeTo: this.route});
   }
 }

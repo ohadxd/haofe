@@ -1,13 +1,14 @@
 <nav class="header"  *ngIf="!mobile" [class.hide-on-scroll] = "isScrolled">
   <ul>
-    <li><button mat-button href="#first">ראשי</button></li>
-    <li><button mat-button href="#second">עלינו</button></li>
-    <li><button mat-button href="#second">המוצרים שלנו</button></li>
-    <li><button mat-button href="#third">צור קשר</button></li>
+    <li><button mat-button routerLink = "/">ראשי</button></li>
+    <li><button mat-button routerLink = "/products">המוצרים שלנו</button></li>
+    <li><button mat-button routerLink = "/about">עלינו</button></li>
+    <li><button mat-button routerLink = "/shops">סניפים</button></li>
+    <li><button mat-button routerLink = "/contact">צור קשר</button></li>
   </ul>
-  <div class="logo">
-    <img src="../../assets/logo.webp" alt="האופה">
-  </div>
+<!--  <div class="logo">-->
+<!--    <img src="../../assets/logo.webp" alt="האופה">-->
+<!--  </div>-->
 </nav>
 <nav class="sidenav" *ngIf="mobile"
      [class.change] = 'toggle'>
@@ -17,9 +18,10 @@
       <div class="bar3"></div>
     </div>
   <ul *ngIf = "toggle">
-    <li><button mat-button href="#first">ראשי</button></li>
-    <li><button mat-button href="#second">עלינו</button></li>
-    <li><button mat-button href="#second">המוצרים שלנו</button></li>
-    <li><button mat-button href="#third">צור קשר</button></li>
+    <li><button mat-button routerLink = "/">ראשי</button></li>
+    <li><button mat-button routerLink = "/products">המוצרים שלנו</button></li>
+    <li><button mat-button routerLink = "/about">עלינו</button></li>
+    <li><button mat-button routerLink = "/shops">סניפים</button></li>
+    <li><button mat-button routerLink = "/contact">צור קשר</button></li>
   </ul>
 </nav>

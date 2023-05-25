@@ -8,25 +8,32 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { SharedModule } from '../shared/shared-modules/shared.module';
 
 
-const productsRoutes: Routes = [{
+const productsRoutes: Routes =
+  [{
   path: '',
-  component: ProductsComponent,
-  // canActivate: [AuthGuard],
-  children: [
-    {
-      path:'',
-      component: ProductListComponent
-    },
-    {path: ':id', component: ProductDetailsComponent},
-    {path: 'new', component: ProductEditComponent},
-    {path: ':id/edit', component: ProductEditComponent}]
-}];
+  component: ProductsComponent, children: [
+    { path:'', component: ProductListComponent },
+    { path: 'new', component: ProductEditComponent },
+    { path: ':id', component: ProductDetailsComponent },
+    { path: ':id/edit', component: ProductEditComponent }
+    ]}
+];
 @NgModule({
-  declarations: [],
+  declarations: [
+    ProductsComponent,
+    ProductListComponent,
+    ProductEditComponent,
+    ProductDetailsComponent,
+    ],
   imports: [
-    CommonModule,
     SharedModule,
     RouterModule.forChild(productsRoutes),
+  ],
+  exports: [
+    ProductsComponent,
+    ProductListComponent,
+    ProductDetailsComponent,
+    ProductEditComponent
   ]
 })
 export class ProductsModule { }

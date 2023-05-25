@@ -17,6 +17,7 @@
       <span>מחיר: 15 ש"ח</span>
       <mat-icon (mouseover)="colorShareIcon($event)" (mouseleave)="uncolorShareIcon($event)">share</mat-icon>
       <mat-icon (mouseover)="colorFavIcon($event)" (mouseleave)="uncolorFavIcon($event)">favorite_border</mat-icon>
+      <mat-icon *ngIf="isAdmin" (mouseover)="colorEditIcon($event)" (mouseleave)="uncolorEditIcon($event)" (click)="onEditProduct()">edit</mat-icon>
     </footer>
   </div>
 </div>

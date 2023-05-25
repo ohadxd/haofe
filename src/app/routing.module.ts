@@ -15,6 +15,14 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+  },
+  {
+    path: 'blogs',
+    loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./about/about.module').then(m => m.AboutModule)
   }
 ];
 @NgModule({
@@ -27,7 +35,8 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 function appRoutes(appRoutes: any,
-                   arg1: { preloadingStrategy: typeof PreloadAllModules; }): any[] | import("@angular/core").Type<any>
+                   arg1: { preloadingStrategy: typeof PreloadAllModules; }): any[]
+  | import("@angular/core").Type<any>
   | import("@angular/core").ModuleWithProviders<{}> {
   throw new Error("Function not implemented.");
 }

@@ -1,0 +1,22 @@
+.editor {
+  overflow-x: auto;
+}
+.file-input {
+  display: none;
+}
+.file-upload {
+  color: aliceblue;
+  margin-bottom: 15px;
+
+}
+.image {
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  img {
+    max-width: 50%;
+    object-fit: cover;
+  }
+}
+

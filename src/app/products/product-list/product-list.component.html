@@ -1,24 +1,37 @@
+<div class="d-flex justify-content-lg-start justify-content-md-center
+justify-content-sm-center justify-content-center w-100">
 
-<div class="products-list container-xxl d-flex w-100 h-100
-  bg-black flex-lg-row flex-wrap pb-5">
-  <div class="product-card
+  <div class="select mt-3">
+    <label for="category">קטגוריה</label>
+    <select name="category" id="category" class="me-auto">
+      <option value="one">עוגות</option>
+      <option value="two">מאפים</option>
+    </select>
+  </div>
+</div>
+  <div class="products-list container-xxl d-flex w-100 h-100
+  bg-black flex-lg-row flex-wrap">
+    <div class="product-card
   col-sm col-md-1
    d-flex flex-column align-items-center
      text-light
      border border-dark rounded-3"
-       *ngFor="let product of products">
-  <header class="bg-dark rounded-top w-100 text-center">
-    <p class="text-sm-center">פטיסייאר</p>
-    </header>
-  <img class="mt-auto" src="assets/img3.webp" alt="product.name" style="max-width: 100%">
-  <div class="description mt-auto">
-מאפה שמרים עם מלית וניל ושוקו צ'יפס
+         *ngFor="let product of products; let i = index" >
+      <header class="bg-dark rounded-top w-100 text-center">
+
+        <p class="text-sm-center">פטיסייאר</p>
+      </header>
+      <img class="mt-auto" src="assets/img3.webp" alt="product.name" style="max-width: 100%" routerLink="id">
+      <div class="description mt-auto" routerLink="id">
+        מאפה שמרים עם מלית וניל ושוקו צ'יפס
+      </div>
+      <footer class="bg-dark w-100 text-center mt-auto rounded-bottom">
+        <span>מחיר: 15 ש"ח</span>
+        <mat-icon (mouseover)="colorShareIcon($event)" (mouseleave)="uncolorShareIcon($event)">share</mat-icon>
+        <mat-icon (mouseover)="colorFavIcon($event)" (mouseleave)="uncolorFavIcon($event)">{{favoriteIcon}}</mat-icon>
+        <mat-icon *ngIf="isAdmin" (mouseover)="colorEditIcon($event)"
+                  (click)="onEditProduct();" (mouseleave)="uncolorEditIcon($event)">edit</mat-icon>
+      </footer>
+    </div>
   </div>
-    <footer class="bg-dark w-100 text-center mt-auto rounded-bottom">
-      <span>מחיר: 15 ש"ח</span>
-      <mat-icon (mouseover)="colorShareIcon($event)" (mouseleave)="uncolorShareIcon($event)">share</mat-icon>
-      <mat-icon (mouseover)="colorFavIcon($event)" (mouseleave)="uncolorFavIcon($event)">{{favoriteIcon}}</mat-icon>
-    </footer>
-  </div>
-</div>
 

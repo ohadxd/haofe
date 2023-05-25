@@ -12,14 +12,31 @@ import { RouterModule } from '@angular/router';
 import { ParallaxDirective } from './shared/directives/parallax.directive';
 import { ObserveVisibilityDirective } from './shared/directives/observe-visibility.directive';
 import { SharedModule } from './shared/shared-modules/shared.module';
-import { AppRoutingModule } from './routing.module';
 import { MainComponent } from './main/main.component';
+
 import { HeaderComponent } from './header/header.component';
-import { ImageSliderModule } from './image-slider/image-slider.module';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { PostsComponent } from './posts/posts.component';
 import { FooterComponent } from './footer/footer.component';
+
+import { AppRoutingModule } from './routing.module';
+import { ImageSliderModule } from './image-slider/image-slider.module';
 import { ProductsModule } from './products/products.module';
+import { BlogModule } from './blog/blog.module';
+import { AboutModule } from './about/about.module';
+import {getApp, initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire/compat';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 
 @NgModule({
   declarations: [
@@ -27,10 +44,6 @@ import { ProductsModule } from './products/products.module';
     ObserveVisibilityDirective,
     ParallaxDirective,
     SlowScrollDirective,
-    ProductsComponent,
-    ProductListComponent,
-    ProductEditComponent,
-    ProductDetailsComponent,
     MainComponent,
     HeaderComponent,
     PostsComponent,
@@ -42,9 +55,35 @@ import { ProductsModule } from './products/products.module';
     SharedModule,
     AppRoutingModule,
     ImageSliderModule,
-    ProductsModule
+    ProductsModule,
+    BlogModule,
+    AboutModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    AngularFireModule,
+    AngularFireStorageModule,
+    // provideAppCheck(() => provideAC.initializeAppCheck(getApp(), {
+    //   provider: new provideAC.ReCaptchaV3Provider("ohad050539"),
+    // })),
+    provideAnalytics(() => getAnalytics()),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    provideFunctions(() => getFunctions()),
+    provideMessaging(() => getMessaging()),
+    providePerformance(() => getPerformance()),
+    provideRemoteConfig(() => getRemoteConfig()),
+    provideStorage(() => getStorage()),
   ],
-  providers: [],
+  exports: [
+
+  ],
+  providers: [
+    ScreenTrackingService,UserTrackingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+function provideAppCheck(arg0: () => any): any[] | import("@angular/core").Type<any> | import("@angular/core").ModuleWithProviders<{}> {
+    throw new Error('Function not implemented.');
+}
+
