@@ -19,6 +19,8 @@ section {
   scroll-snap-align: start;
   background-image: url('../../assets/secondary2.webp');
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
   width: 100vw;
   height: 100vh;
@@ -90,13 +92,13 @@ section {
 
 }
 
-
-@media only screen and (min-width: 1450px) {
-
-}
-@media only screen and (max-width: 1449px) {
-
-}
+// maybe will be in use
+//@media only screen and (min-width: 1450px) {
+//
+//}
+//@media only screen and (max-width: 1449px) {
+//
+//}
 @media only screen and (max-width: 1200px) {
 
   .sec2 {
@@ -110,9 +112,10 @@ section {
 
     .content {
       span {
+        text-align: center;
         max-height: 50vh;
-        max-width: 50vw;
-        font-size: 38px;
+        max-width: 60vw;
+        font-size: 36px;
       }
     }
   }
@@ -135,9 +138,8 @@ section {
 
     .content {
       span {
-        margin-left: 50px;
         max-width: 50vw;
-        font-size: 25px;
+        font-size: 20px;
       }
       ul{
         margin-left: 150px;

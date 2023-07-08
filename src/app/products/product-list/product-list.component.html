@@ -3,30 +3,30 @@ justify-content-sm-center justify-content-center w-100">
 
   <div class="select mt-3">
     <label for="category">קטגוריה</label>
-    <select name="category" id="category" class="me-auto">
-      <option value="one">עוגות</option>
-      <option value="two">מאפים</option>
+    <select #category  (change)="onSelected()" name="category" id="category" class="me-auto">
+      <option value="cakes">עוגות</option>
+      <option value="pastry">מאפים</option>
     </select>
   </div>
 </div>
   <div class="products-list container-xxl d-flex w-100 h-100
   bg-black flex-lg-row flex-wrap">
     <div class="product-card
-  col-sm col-md-1
+  col-sm col-md-1 h-25
    d-flex flex-column align-items-center
      text-light
      border border-dark rounded-3"
-         *ngFor="let product of products; let i = index" >
+         *ngFor="let product of products | keyvalue" >
       <header class="bg-dark rounded-top w-100 text-center">
 
-        <p class="text-sm-center">פטיסייאר</p>
+        <p class="text-sm-center">{{product.value.name}}</p>
       </header>
-      <img class="mt-auto" src="assets/img3.webp" alt="product.name" style="max-width: 100%" routerLink="id">
+      <img class="mt-auto" src="assets/img3.webp" alt="product.name" style="max-width: 100%" [routerLink]= "product.key">
       <div class="description mt-auto" routerLink="id">
         מאפה שמרים עם מלית וניל ושוקו צ'יפס
       </div>
       <footer class="bg-dark w-100 text-center mt-auto rounded-bottom">
-        <span>מחיר: 15 ש"ח</span>
+        <span>מחיר:  {{product.value.price}}  ש"ח </span>
         <mat-icon (mouseover)="colorShareIcon($event)" (mouseleave)="uncolorShareIcon($event)">share</mat-icon>
         <mat-icon (mouseover)="colorFavIcon($event)" (mouseleave)="uncolorFavIcon($event)">{{favoriteIcon}}</mat-icon>
         <mat-icon *ngIf="isAdmin" (mouseover)="colorEditIcon($event)"

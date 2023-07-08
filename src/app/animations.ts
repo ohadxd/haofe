@@ -93,10 +93,10 @@ export const fadeEffect = [
         opacity: 0
       })),
       transition('visible => fade', [
-        animate('1.5s ease-in')
+        animate('1s ease-in')
       ]),
       transition('fade => visible', [
-        animate('1.5s ease-in')
+        animate('1s ease-in')
       ])
     ]
   )

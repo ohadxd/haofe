@@ -59,7 +59,7 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
     BlogModule,
     AboutModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     // provideAppCheck(() => provideAC.initializeAppCheck(getApp(), {
     //   provider: new provideAC.ReCaptchaV3Provider("ohad050539"),

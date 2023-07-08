@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { SharedService } from '../shared/services/shared.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+  footExpand: boolean = false;
+  constructor(private shared: SharedService) {
+  }
 
 }

@@ -22,7 +22,7 @@ import { ProductData } from 'src/app/shared/interfaces';
 export class ProductEditComponent {
 
   // private appCheck: AppCheck = inject(AppCheck);
-  productForm: FormGroup;
+  productForm: FormGroup = new FormGroup({});
   private readonly storage: Storage = inject(Storage);
   fileName: string = "";
   @Input()
@@ -32,8 +32,9 @@ export class ProductEditComponent {
   uploadTask: UploadTaskSnapshot | undefined;
   imgPath: string = "";
 
-  id: number;
-  editMode: boolean;
+  previousCategory: string;
+  id: string;
+  editMode: boolean = false;
 
   constructor(private http: HttpClient, private productsService: ProductsService,
               private route: ActivatedRoute, private router: Router) {}
@@ -43,19 +44,20 @@ export class ProductEditComponent {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.id = +params['id'];
+          this.id = params['id'];
           this.editMode = params['id'] != null;
           this.initForm();
         }
       );
   }
-
+//this method initialize the form in edit mode with the params of the object to update
   private initForm() {
     if(this.editMode) {
       let product: ProductData = this.productsService.getProduct(this.id);
+      this.previousCategory = product.category;
       this.productForm = new FormGroup({
         name: new FormControl(product.name, Validators.required),
-        category: new FormControl(product.description, Validators.required),
+        category: new FormControl(product.category, Validators.required),
         description: new FormControl(product.description, Validators.required),
         imgPath: new FormControl(product.imgPath, Validators.required),
         price: new FormControl(product.price, {validators: [Validators.required,
@@ -119,12 +121,29 @@ export class ProductEditComponent {
     this.router.navigate(['/'] , {relativeTo: this.route});
   }
   onSubmit() {
-    // console.log(this.productForm.value);
+    //get product object
     const product: ProductData = this.productForm.value;
-    console.log(product);
-    if (this.editMode)
-    this.productsService.newProduct(product);
-    else
-      this.productsService.updateProduct(product);
+    //check if edit mode
+    if (this.editMode) {
+      //check if need to change category
+      if (this.previousCategory === product.category) { //edit in the same category
+        this.productsService.updateProduct(product, this.id).then((s) => {
+          console.log(s);
+          this.router.navigate(['/'], {relativeTo: this.route});
+        }).catch(e => {
+          console.log(e);
+        });
+        return;
+      } else { //delete from previous category
+        this.productsService.deleteProduct(this.previousCategory, this.id);
+        console.log('deleted')
+      }
+
+    }
+      this.productsService.newProduct(product).then((s)=> {
+        this.router.navigate(['/'] , {relativeTo: this.route});
+      }).catch( e => {
+        console.log(e);
+      });
   }
 }

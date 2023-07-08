@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/compat/firestore";
+import { FieldValue } from 'firebase/firestore';
 import { Subject } from 'rxjs';
 import { ProductData } from '../shared/interfaces';
 
@@ -8,20 +9,21 @@ import { ProductData } from '../shared/interfaces';
 
 export class ProductsService {
 
-  productsList:  Subject<ProductData[] | null> = new Subject<ProductData[] | null>();
-  private products: ProductData[];
+  productsList:  Subject<{[key: string]:ProductData} | null> = new Subject<{[key: string]:ProductData} | null>();
+  private products: {[key: string]:ProductData};
   itemsCol: AngularFirestoreCollection<ProductData>;
   itemDoc: AngularFirestoreDocument;
   constructor(private db: AngularFirestore ) {
 
   }
   fetchProducts(category) {
-    let productsList: ProductData[] = [];
-    const snapshot = this.db.collection('products').get();
+    let productsList: {[key: string]:ProductData} = {};
+    const snapshot = this.db.collection(category).get();
     snapshot.subscribe(data => {
       data.forEach( doc => {
+        console.log(doc.id)
         let product: ProductData = doc.data() as ProductData;
-        productsList.push(doc.data() as ProductData)
+        productsList[doc.id] = product;
       }, e => {
         console.log(e);
       });
@@ -34,34 +36,34 @@ export class ProductsService {
     });
   }
 
-   getProduct(index: number) {
+   getProduct(index: string) {
     return this.products[index];
   }
 
   getProducts(index: number) {
-    return this.products.slice();
+    return this.products;
   }
   newProduct(product: ProductData) {
-    this.itemsCol = this.db.collection(`products`);
-    this.itemsCol.add(product).then((s)=> {
-      console.log(s);
-    }).catch( e => {
-      console.log(e);
-    });;
+    let category = product.category;
+    this.itemsCol = this.db.collection(category);
+    return this.itemsCol.add(product);
   }
-  updateProduct(product: ProductData) {
-    this.itemDoc = this.db.collection(`products`).doc(product.name);
-    this.itemDoc.update(product).then((s)=> {
-      console.log(s);
-    }).catch( e => {
-      console.log(e);
-    });;
+  updateProduct(product: ProductData, id: string) {
+    let category = product.category;
+    this.itemDoc = this.db.collection(category).doc(id);
+    return this.itemDoc.update(product);
   }
 
-  deleteProduct(product: ProductData) {
-    this.itemDoc = this.db.collection(`products`).doc(product.name);
+  thumbUp(id: string, category: string) {
+    this.itemDoc = this.db.collection(category).doc(id);
+    // return this.itemDoc.update();
+  }
+
+  deleteProduct(productCategory: string, productId: string) {
+    this.itemDoc = this.db.collection(productCategory).doc(productId);
       this.itemDoc.delete().then((s)=> {
-        console.log(s);
+        console.log(productCategory + " : " + productId);
+        console.log("finish to delete");
       }).catch( e => {
         console.log(e);
       });

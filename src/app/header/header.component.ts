@@ -26,12 +26,13 @@ toggleMenu() {
   console.log(this.toggle);
 }
 
-  @HostListener("window:wheel", ["$event"])
-  onWindowScroll(event: any) {
-    if (event.deltaY < -120) {
-      this.isScrolled = false;
-    } else if (event.deltaY > 120) {
-      this.isScrolled = true;
-    }
- }
+// optional
+ //  @HostListener("window:wheel", ["$event"])
+ //  onWindowScroll(event: any) {
+ //    if (event.deltaY < -120) {
+ //      this.isScrolled = false;
+ //    } else if (event.deltaY > 120) {
+ //      this.isScrolled = true;
+ //    }
+ // }
 }

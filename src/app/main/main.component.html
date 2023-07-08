@@ -2,7 +2,7 @@
 
 
   <section  class="sec1" observeVisibility>
-<div class="slider" style="width: 100vw; height: 80vh;margin: auto auto; border-radius: 15px;">
+<div class="slider" style="width: 80vw; height: 80vh;margin: auto auto; border-radius: 15px;">
   <image-slider [slides]="slides"></image-slider>
 </div>
   </section>
@@ -23,7 +23,8 @@
   </section>
 
   <section class="sec3">
-        <h3 class="sec3-title" style="">הבלוג השבועי</h3>
+        <h3 class="sec3-title" style="" observeVisibility
+            [debounceTime]="0" (visible)="expandFooter($event)" [threshold] = "0.8">הבלוג השבועי</h3>
  <app-posts></app-posts>
    </section>
 </div>

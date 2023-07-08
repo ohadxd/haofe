@@ -4,12 +4,8 @@ font-size: 30px;
   color: aliceblue;
 }
 .whatsapp-ico{
+  cursor: pointer;
   fill: white;
-  width: 30px;
-  height: 30px;
-  padding: 2px;
-  //margin-bottom: 4px;
-  flex-shrink: 0;
   background-color: #4dc247;
   border-radius: 50%;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.4);

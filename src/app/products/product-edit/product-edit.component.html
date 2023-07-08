@@ -8,6 +8,14 @@
           <mat-label>שם מוצר:</mat-label>
           <input matInput type="text" id="product-name" formControlName = "name">
         </mat-form-field>
+        <mat-form-field>
+          <mat-label>קטגוריה:</mat-label>
+          <mat-select matNativeControl id="product-category" formControlName = "category">
+            <mat-option value="cakes">עוגות</mat-option>
+            <mat-option value="pastry">מאפים</mat-option>
+            <mat-option value="desserts">קינוחים</mat-option>
+          </mat-select>
+        </mat-form-field>
         <!-- file upload area -->
           <label style="color: aliceblue">קישור תמונה:</label>
         <input type="file" class="file-input"

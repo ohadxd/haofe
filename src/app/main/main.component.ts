@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { fadeEffect, openDoorLeft, openDoorRight, transformLeft, transformRight, transformRoll } from '../animations';
 import { SlideInterface } from '../image-slider/slide-interface';
+import { SharedService } from '../shared/services/shared.service';
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
+  // optionals
   animations:    [
+
     fadeEffect,
-    transformRight,
-    transformLeft,
-    openDoorRight,
-    openDoorLeft,
-    transformRoll
+    // transformRight,
+    // transformLeft,
+    // openDoorRight,
+    // openDoorLeft,
+    // transformRoll
   ]
 })
 export class MainComponent {
@@ -30,6 +33,8 @@ export class MainComponent {
     {url: 'assets/img5.webp', title: 'bakery'}
 
   ];
+  constructor(private shared: SharedService) {
+  }
   fadeAnimation(bool: boolean) {
     this.fade = bool;
   }
@@ -45,4 +50,7 @@ export class MainComponent {
     this.doors = bool;
   }
 
+  expandFooter($event: any) {
+    this.shared.expandFooter = true;
+  }
 }
