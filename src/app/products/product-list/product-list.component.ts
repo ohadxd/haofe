@@ -2,11 +2,10 @@ import {AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } fro
 import {ActivatedRoute, Router } from '@angular/router';
 import { ProductData } from 'src/app/shared/interfaces';
 import { ProductsService } from '../products.service';
-
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
   //demmy data
@@ -14,6 +13,7 @@ export class ProductListComponent implements OnInit {
   favoriteIcon: string = "favorite_border";
   isAdmin: boolean = false;
 
+  isLoading = true;
   @ViewChild('category', {static: true}) category: ElementRef;
 
   constructor(private productService: ProductsService, private renderer2: Renderer2, private route: ActivatedRoute,
@@ -26,6 +26,7 @@ export class ProductListComponent implements OnInit {
     this.productService.fetchProducts(category);
     this.productService.productsList.subscribe(data => {
       this.products = data;
+      this.isLoading = false;
     })
   }
 
@@ -64,11 +65,12 @@ export class ProductListComponent implements OnInit {
   }
 
   onSelected() {
-    console.log(this.category.nativeElement.value);
+    this.isLoading = true;
     let category = this.category.nativeElement.value;
     this.productService.fetchProducts(category);
     this.productService.productsList.subscribe(data => {
       this.products = data;
+      this.isLoading = false;
     });
   }
 }

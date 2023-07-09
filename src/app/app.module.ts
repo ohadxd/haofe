@@ -23,7 +23,6 @@ import { AppRoutingModule } from './routing.module';
 import { ImageSliderModule } from './image-slider/image-slider.module';
 import { ProductsModule } from './products/products.module';
 import { BlogModule } from './blog/blog.module';
-import { AboutModule } from './about/about.module';
 import {getApp, initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
@@ -57,7 +56,6 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
     ImageSliderModule,
     ProductsModule,
     BlogModule,
-    AboutModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -12,12 +11,11 @@ import { PrimeNGConfig } from 'primeng/api';
 })
 export class AppComponent implements OnInit{
   expandFooter: boolean = false;
-  constructor(private primengConfig: PrimeNGConfig) {
+  constructor() {
 
   }
 
   ngOnInit(): void {
-    this.primengConfig.ripple = true;
   }
 
   expandFoot($event: any) {

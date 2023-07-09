@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-lg-start justify-content-md-center
 justify-content-sm-center justify-content-center w-100">
-
+<app-loading *ngIf = isLoading></app-loading>
   <div class="select mt-3">
     <label for="category">קטגוריה</label>
     <select #category  (change)="onSelected()" name="category" id="category" class="me-auto">

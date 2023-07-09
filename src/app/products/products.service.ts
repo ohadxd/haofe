@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/compat/firestore";
-import { FieldValue } from 'firebase/firestore';
 import { Subject } from 'rxjs';
 import { ProductData } from '../shared/interfaces';
 
