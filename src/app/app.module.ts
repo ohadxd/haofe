@@ -36,6 +36,7 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
     MainComponent,
     HeaderComponent,
     PostsComponent,
-    FooterComponent
+    FooterComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +61,6 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
-    // provideAppCheck(() => provideAC.initializeAppCheck(getApp(), {
-    //   provider: new provideAC.ReCaptchaV3Provider("ohad050539"),
-    // })),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

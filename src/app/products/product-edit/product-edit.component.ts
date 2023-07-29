@@ -1,13 +1,11 @@
-import { HttpClient, HttpEventType } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, inject  } from '@angular/core';
 import {FormControl, FormGroup, Validators } from '@angular/forms';
-import {finalize, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Storage, ref, uploadBytesResumable, UploadTaskSnapshot, getDownloadURL } from '@angular/fire/storage';
-import { Product } from '../product.model';
 import { ProductsService } from '../products.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProductData } from 'src/app/shared/interfaces';
-// import { AppCheck } from '@angular/fire/app-check';
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',
