@@ -1,0 +1,21 @@
+//firebase rules Dev only!
+{
+  "rules": {
+    ".read": false,
+    "users": {
+      "$uid": {
+        "pms": {
+          ".write": "auth.uid != null",
+          ".read": "auth.uid === $uid"
+        },
+        "user_profile": {
+          ".write": "auth.uid != null && auth.token.sub === $uid",
+          ".read": "auth.uid != null"
+        }
+      }
+    },
+    "words": {
+      ".read": "auth.uid != null"
+    }
+  }
+}

@@ -31,9 +31,7 @@
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": [
-
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -111,11 +109,8 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
-            "prerender": false,
-            "ssr": false,
-            "browserTarget": "Haofe:build:production",
-            "firebaseProject": "haofe-5eb24",
-            "firebaseHostingSite": "haofe-5eb24"
+            "version": 2,
+            "browserTarget": "Haofe:build:production"
           }
         }
       }

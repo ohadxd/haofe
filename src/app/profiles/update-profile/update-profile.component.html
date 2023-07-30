@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="update-profile.component.scss">
+<div class="form-container">
+  <form class="example-form">
+    <h1 style="text-align: center;">{{user.displayName}}</h1>
+    <img src="assets/profile.jpg"  class="avatar">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Display Name</mat-label>
+      <input matInput placeholder=""  name="displayName" />
+    </mat-form-field>
+
+    <input type="file" class="file-input"
+    (change)="onFileSelected($event)" #fileUpload>
+
+    <div class="file-upload">
+
+    {{fileName || "No file uploaded yet."}}
+
+    <button mat-mini-fab color="primary" class="upload-btn"
+    (click)="fileUpload.click()">
+     <mat-icon>attach_file</mat-icon>
+    </button>
+</div>
+
+<div class="progress">
+
+  <mat-progress-bar class="progress-bar" mode="determinate"
+                    [value]="uploadProgress" *ngIf="uploadProgress">
+  </mat-progress-bar>
+
+  <mat-icon class="cancel-upload" (click)="cancelUpload()"
+            *ngIf="uploadProgress">delete_forever</mat-icon>
+</div>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Avatar Image</mat-label>
+      <input matInput placeholder="url" type="url" name="c1" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Status</mat-label>
+        <input matInput placeholder="Status" style="resize: none;" name="displayName" maxlength="150" >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Birthdate</mat-label>
+        <input matInput type="date" placeholder="Status" name="birthdate" maxlength="150">
+    </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Gender</mat-label>
+          <mat-select name="gender" placeholder="Please choose a gender">
+            <mat-option value="m">Male</mat-option>
+            <mat-option value="f">Female</mat-option>
+            <mat-option value="p" >Prefer not to tell</mat-option>
+          </mat-select>
+      </mat-form-field>
+    <button mat-button color="primary">Submit</button>
+</form>
+  </div>

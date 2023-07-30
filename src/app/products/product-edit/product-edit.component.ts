@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, Input, inject  } from '@angular/core';
 import {FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';

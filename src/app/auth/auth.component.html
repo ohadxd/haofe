@@ -1,0 +1,48 @@
+
+<div class="container d-flex align-content-center justify-content-center h-100 flex-wrap">
+<div class="row-cols-auto">
+  <div class="col-xs-12 col-md-6 col-offset-3 col-lg-12 col-xl-12">
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <label>אימייל:</label>
+     <input class="form-control"
+       type="type"
+       name="email"
+       id="email"
+       formControlName="email"
+            />
+
+    <label>סיסמה:</label>
+    <input class="form-control"
+      type="password"
+      name="password"
+      id="password"
+      autocomplete = "password"
+      formControlName="password"
+        />
+        <div formGroupName="signUpGroup" *ngIf="!isLoginMode">
+    <label>ודא\י סיסמה:</label>
+    <input class="form-control"
+       type="password"
+       name="passwordConfrim"
+       id="passwordConfrim"
+       autocomplete = "password"
+       formControlName="passwordConfrim"
+        />
+     <label>שם:</label>
+     <input class="form-control"
+       type="type"
+       name="displayName"
+       id="displayName"
+       formControlName="displayName"
+       autocomplete="Other users will see this name"
+            />
+          </div>
+            <div class="buttons" style="padding: 10px"></div>
+            <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login':'Sign Up' }}</button> |
+            <button class="btn btn-primary" type="button" (click) = "onSwitchMode()">Switch to {{isLoginMode ? 'Sign Up':'Login'}}</button>
+          </div>
+  </form>
+</div>
+</div>
+</div>

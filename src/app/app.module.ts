@@ -26,7 +26,6 @@ import { BlogModule } from './blog/blog.module';
 import {getApp, initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
-import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideFunctions,getFunctions } from '@angular/fire/functions';
@@ -37,6 +36,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import { AuthComponent } from './auth/auth.component';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+
 
 @NgModule({
   declarations: [
@@ -60,9 +61,6 @@ import { AuthComponent } from './auth/auth.component';
     BlogModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule,
-    provideAnalytics(() => getAnalytics()),
-    provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     provideFunctions(() => getFunctions()),
@@ -70,9 +68,11 @@ import { AuthComponent } from './auth/auth.component';
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
+    provideAuth(() => getAuth()),
+    AngularFireStorageModule
   ],
   exports: [
-
+    AngularFireStorageModule, AngularFireModule
   ],
   providers: [
     ScreenTrackingService,UserTrackingService
